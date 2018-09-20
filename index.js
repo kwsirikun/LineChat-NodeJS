@@ -41,7 +41,7 @@ server()
 
   //---------------------------------------
   
-    const ref = db.ref("db1/chatbot");
+         const ref = db.ref("ticket");
         const timeRef = (new Date()).getTime();
         
         var words = message.split(':');
