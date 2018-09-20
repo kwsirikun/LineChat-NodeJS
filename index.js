@@ -41,14 +41,14 @@ server()
 
   //---------------------------------------
   
-         const ref = db.ref("ictcc/ticket");
-        const timeRef = (new Date()).getTime();
+        const ref = db.ref("ictcc/ticket");
+        const timeRef = new Date(year, month, day, hours, minutes);
         
         var words = message.split(':');
 
-        const chatLog = ref.child(words[0]);
+        const ticketid = ref.child(words[0]);
         chatLog.set({
-            Problem: words[1],
+            ticket_subject: words[1],
             Time: timeRef
         });
 
