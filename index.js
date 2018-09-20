@@ -42,7 +42,7 @@ server()
   //---------------------------------------
   
         const ref = db.ref("ictcc/ticket");
-        const timeRef = new Date(year, month, day, hours, minutes);
+        const timeRef = new Date().getDate;
         
         var words = message.split(':');
 
