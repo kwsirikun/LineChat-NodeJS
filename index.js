@@ -27,32 +27,19 @@ server()
   
   
   
-  //-------------------------------------------------
-        //const ref = db.ref("db1/chatbot");
-        //const timeRef = (new Date()).getTime();
-        
-        //var words = message.split(':');
 
-        //const chatLog = ref.child(words[0]);
-        //chatLog.set({
-        //    Problem: words[1],
-        //    Time: timeRef
-       /// });
-
-  //---------------------------------------
-  
-        const ref = db.ref("ictcc/ticket");
+        const ref = db.ref("db1/chatbot");
         const timeRef = (new Date()).getTime();
         
         var words = message.split(':');
 
-        const ticketid = ref.child(words[0]);
+        const chatLog = ref.child(words[0]);
         chatLog.set({
-            ticket_subject: words[1],
+            Problem: words[1],
             Time: timeRef
         });
 
-  //-----------------------------------------------
+ 
   
   
   
