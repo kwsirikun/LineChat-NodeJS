@@ -24,7 +24,24 @@ server()
         console.log(`Message from chat : ${ message }`);
 
         const db = firebase.database();
-        const ref = db.ref("db1/chatbot");
+  
+  
+  
+  //-------------------------------------------------
+        //const ref = db.ref("db1/chatbot");
+        //const timeRef = (new Date()).getTime();
+        
+        //var words = message.split(':');
+
+        //const chatLog = ref.child(words[0]);
+        //chatLog.set({
+        //    Problem: words[1],
+        //    Time: timeRef
+       /// });
+
+  //---------------------------------------
+  
+    const ref = db.ref("db1/chatbot");
         const timeRef = (new Date()).getTime();
         
         var words = message.split(':');
@@ -35,6 +52,16 @@ server()
             Time: timeRef
         });
 
+  //-----------------------------------------------
+  
+  
+  
+  
+  
+  
+  
+  
+  
         lineMessaging.replyMessage(replyToken, message).then(function (rs) {
 
             console.log(`Reply message result : ${ rs }`);
