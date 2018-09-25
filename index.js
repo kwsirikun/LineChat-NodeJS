@@ -58,7 +58,8 @@ server()
   
   
   
-        lineMessaging.replyMessage(replyToken, message).then(function (rs) {
+        //lineMessaging.replyMessage(replyToken, message).then(function (rs) {
+  lineMessaging.replyMessage(replyToken, 'กรุณาระบุหมายเลขพนักงาน').then(function (rs) {
 
             console.log(`Reply message result : ${ rs }`);
 
