@@ -41,7 +41,7 @@ server()
   
         //$userid = $event['source']['userId'];
   
-        let userid = req.body.events[0].message.source.userId;
+        let userid = req.body.events[0].message.userId;
  
         const ref = db.ref("ictcc/ticket");
         const timeRef = (new Date()).getTime();
