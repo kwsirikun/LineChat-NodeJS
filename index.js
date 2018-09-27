@@ -38,9 +38,12 @@ server()
         //    Problem: words[1],
         //    Time: timeRef
         //});
-
+  
+        //$userid = $event['source']['userId'];
+  
+        let userid = req.body.events[0].message.source.userId;
  
-          const ref = db.ref("ictcc/ticket");
+        const ref = db.ref("ictcc/ticket");
         const timeRef = (new Date()).getTime();
         
         var words = message.split(':');
@@ -59,7 +62,7 @@ server()
   
   
         //lineMessaging.replyMessage(replyToken, message).then(function (rs) {
-  lineMessaging.replyMessage(replyToken, 'กรุณาระบุหมายเลขพนักงาน').then(function (rs) {
+  lineMessaging.replyMessage(replyToken, userid).then(function (rs) {
 
             console.log(`Reply message result : ${ rs }`);
 
