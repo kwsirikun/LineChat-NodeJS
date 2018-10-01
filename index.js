@@ -59,7 +59,7 @@ server()
   
   
   
-        lineMessaging.replyMessage(replyToken, 'กรุณาระบุรหัสพนักงาน').then(function (rs) {
+        lineMessaging.replyMessage(replyToken, "กรุณาระบุรหัสพนักงาน").then(function (rs) {
   
 
             console.log(`Reply message result : ${ rs }`);
