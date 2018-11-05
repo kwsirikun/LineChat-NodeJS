@@ -41,7 +41,7 @@ server()
   
   
  
-        const ref = db.ref("ictcc/ticket");
+        const ref = db.ref("ictcc/register");
         const timeRef = (new Date()).getTime();
         
         var words = message.split(':');
