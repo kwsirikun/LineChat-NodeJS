@@ -25,43 +25,23 @@ server()
 
         const db = firebase.database();
   
-  
-  
-
-        //const ref = db.ref("db1/chatbot");
-        //const timeRef = (new Date()).getTime();
-        
-        //var words = message.split(':');
-
-        //const chatLog = ref.child(words[0]);
-        //chatLog.set({
-        //    Problem: words[1],
-        //    Time: timeRef
-        //});
-  
+    
   
  
-        const ref = db.ref("ictcc/register");
-        const timeRef = (new Date()).getTime();
+        //const ref = db.ref("ictcc/register");
+        //const timeRef = (new Date()).getTime();
         
         var words = message.split(':');
+        var ca    = words[0];
+        var meter = words[1];
+  
+  
 
-        const chatLog = ref.child(words[0]);
-        chatLog.set({
-            ticket_supject : words[1],
-            Time: timeRef
-        });
-  
-  
-  
-  
-  
-  
-  
+          
+   
   
         lineMessaging.replyMessage(replyToken, 'แจ้งปัญหา กรุณาระบุรหัสพนักงาน').then(function (rs) {
   
-
             console.log(`Reply message result : ${ rs }`);
 
             res.json({
@@ -69,5 +49,10 @@ server()
                 message: `Sent message!`
             });
         });
+
+
+
+
+
     })
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
