@@ -50,8 +50,19 @@ server()
                 console.log("water")
                 break;
             case 'ติดต่อเรา':
-                console.log("rov")
-                break;
+                
+            lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
+                console.log(`Reply message result : ${ rs }`);    
+                res.json({
+                    status: 200,
+                    message: `Sent message!`
+                });
+            });
+
+
+
+
+               break;
             default:
                 console.log("default")
         }
@@ -60,10 +71,6 @@ server()
   
   
   
-  
-  
-        
-
 
 
 
