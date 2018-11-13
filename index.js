@@ -28,46 +28,47 @@ server()
   
   
 
-        //const ref = db.ref("db1/chatbot");
-        //const timeRef = (new Date()).getTime();
-        
-        //var words = message.split(':');
+  
+  
+  
+        switch (message) {
 
-        //const chatLog = ref.child(words[0]);
-        //chatLog.set({
-        //    Problem: words[1],
-        //    Time: timeRef
-        //});
-  
-  
- 
-        const ref = db.ref("ictcc/register");
-        const timeRef = (new Date()).getTime();
-        
-        var words = message.split(':');
+            case 'แจ้งปัญหา':
 
-        const chatLog = ref.child(words[0]);
-        chatLog.set({
-            ticket_supject : words[1],
-            Time: timeRef
-        });
-  
-  
-  
-  
-  
-  
-  
-  
-        lineMessaging.replyMessage(replyToken, 'แจ้งปัญหา กรุณาระบุรหัสพนักงาน').then(function (rs) {
-  
-
-            console.log(`Reply message result : ${ rs }`);
-
-            res.json({
-                status: 200,
-                message: `Sent message!`
+            lineMessaging.replyMessage(replyToken, 'http://ictcc/ticket-add.php').then(function (rs) {  
+                console.log(`Reply message result : ${ rs }`);    
+                res.json({
+                    status: 200,
+                    message: `Sent message!`
+                });
             });
-        });
+                break;
+
+
+
+            case 'ติดตามปัญหา':
+                console.log("water")
+                break;
+            case 'ติดต่อเรา':
+                console.log("rov")
+                break;
+            default:
+                console.log("default")
+        }
+  
+  
+  
+  
+  
+  
+  
+        
+
+
+
+
+
+
+
     })
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
