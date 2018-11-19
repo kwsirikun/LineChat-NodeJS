@@ -68,6 +68,17 @@ server()
 
 
 
+            var request = require('request');
+                request.post({
+                url:     'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
+                form:    { req: "MEACA"+ca+"MEATSTH" }
+                }, function(error, response, body){
+                    // console.log(body);
+
+                });
+
+
+            //////////////Reply Message /////////////
             lineMessaging.replyMessage(replyToken, 'Hello World').then(function (rs) {  
                 console.log(`Reply message result : ${ rs }`);    
                 res.json({
@@ -75,7 +86,7 @@ server()
                     message: `Sent message!`
                 });
             });
-
+            ////////End of Reply Message ///////////////////////
                 
 
 
