@@ -98,7 +98,7 @@ server()
                 
                 
                 //////////////Reply Message /////////////
-                lineMessaging.replyMessage(replyToken, 'Helloooo World').then(function (rs) {
+                lineMessaging.replyMessage(replyToken, data).then(function (rs) {
                     console.log(`Reply message result : ${ rs }`);
                     res.json({
                         status: 200,
