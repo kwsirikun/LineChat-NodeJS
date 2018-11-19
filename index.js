@@ -6,6 +6,9 @@ const lineMessaging = require('./src/classes/line-messaging');
 const firebase = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 
+
+
+
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
   databaseURL: "https://chatbot-eee95.firebaseio.com"
@@ -25,30 +28,113 @@ server()
 
         const db = firebase.database();
   
-    
-  
- 
-        //const ref = db.ref("ictcc/register");
-        //const timeRef = (new Date()).getTime();
-        
-        var words = message.split(':');
-        var ca    = words[0];
-        var meter = words[1];
   
   
 
-          
-   
   
-        lineMessaging.replyMessage(replyToken, 'แจ้งปัญหา กรุณาระบุรหัสพนักงาน').then(function (rs) {
   
-            console.log(`Reply message result : ${ rs }`);
+  
+        switch (message) {
 
-            res.json({
-                status: 200,
-                message: `Sent message!`
+            case 'แจ้งปัญหา':
+
+            lineMessaging.replyMessage(replyToken, 'http://ictcc/ticket-add.php').then(function (rs) {  
+                console.log(`Reply message result : ${ rs }`);    
+                res.json({
+                    status: 200,
+                    message: `Sent message!`
+                });
             });
-        });
+                break;
+
+
+
+            case 'ติดตามปัญหา':
+                console.log("water")
+                break;
+            case 'ติดต่อเรา':
+                
+            lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
+                console.log(`Reply message result : ${ rs }`);    
+                res.json({
+                    status: 200,
+                    message: `Sent message!`
+                });
+                
+            });
+
+
+            var ca = message ;
+            var request = require('request');
+                request.post({
+                url:     'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
+                form:    { req: "MEACA"+ca+"MEATSTH" }
+                }, function(error, response, body){
+                    lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
+                        console.log(`Reply message result : ${ rs }`);    
+                        res.json({
+                            status: 200,
+                            message: body
+                        });
+                        
+                    });
+                });
+
+            // $.ajax({
+                
+            //     type: "GET", //HTTP METHOD : GET, POST
+            //     url: "http://localhost:1150/print_v4?username=admin&password=password",
+                
+            //     data :  "MEACA".message.12345TH" ,
+                
+            //     //data: "data",  //ข้อมูลที่จะส่ง
+            //     dataType: "json",
+
+            //     success: function (response) { //ข้อมูลที่ส่งกลับมา
+            //         //alert(response[0].title)
+            //         //var title =  response[0].title;
+            //         //return  title;
+            //         //return response[0].title;
+            //         //$('#p5').text(response[0].fname);
+
+            //        var words = response.split('|');
+            //        var TotAmt =    words[27] ;
+
+
+
+
+
+
+            //     }
+            // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                break;
+            default:
+                console.log("default")
+        }
+  
+  
+  
+  
+  
+  
+  
+        
+
+
 
 
 
