@@ -80,7 +80,7 @@ server()
                 }, function cadata(error, response, body) {
                     // console.log(body);
 
-                    return body.url;
+                    return body.toString();
 
 
                 });
