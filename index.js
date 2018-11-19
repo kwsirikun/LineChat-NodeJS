@@ -27,9 +27,9 @@ server()
 
         console.log(`Message token : ${ replyToken }`);
         console.log(`Message from chat : ${ message }`);
-
         const db = firebase.database();
 
+        var data = '';
         var ca = '012019243';
         // var ca = message ;
 
@@ -81,7 +81,7 @@ server()
                     // console.log(body);
 
                     //return body.toString();
-                    var data = body.toString();
+                     data = body.toString();
                     return data;
                                                       
 
