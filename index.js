@@ -80,14 +80,17 @@ server()
                 }, function cadata(error, response, body) {
                     // console.log(body);
 
-                    return body.toString();
+                    //return body.toString();
+                    var data = body.toString();
+                    
+                    
 
 
                 });
 
 
 
-                var cadata = cadata();
+                //var cadata = cadata();
                 
                // var data = data.split('|');
                 //var totamount = data[3];
