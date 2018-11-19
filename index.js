@@ -87,7 +87,7 @@ server()
 
 
 
-                var cadata = cadata();
+                var cadata = cadata().text;
                // var data = data.split('|');
                 //var totamount = data[3];
                 //console.log('test' + totamount);
