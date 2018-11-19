@@ -76,7 +76,11 @@ server()
                     // console.log(body);
 
 
-                    //////////////Reply Message /////////////
+                });
+
+
+            
+                //////////////Reply Message /////////////
             lineMessaging.replyMessage(replyToken, 'Hello World').then(function (rs) {  
                 console.log(`Reply message result : ${ rs }`);    
                 res.json({
@@ -85,21 +89,6 @@ server()
                 });
             });
             ////////End of Reply Message ///////////////////////
-
-
-
-
-
-
-
-
-
-
-                });
-
-
-            
-                
 
 
 
