@@ -82,8 +82,8 @@ server()
 
                     //return body.toString();
                     var data = body.toString();
-                                   
-                    
+                    return data;
+                                                      
 
 
                 });
