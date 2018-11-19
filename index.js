@@ -53,6 +53,7 @@ server()
                 console.log("water")
                 break;
             case 'ติดต่อเรา':
+
                 
             lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
                 console.log(`Reply message result : ${ rs }`);    
@@ -70,14 +71,28 @@ server()
                 url:     'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
                 form:    { req: "MEACA"+ca+"MEATSTH" }
                 }, function(error, response, body){
-                    lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
-                        console.log(`Reply message result : ${ rs }`);    
-                        res.json({
-                            status: 200,
-                            message: body
-                        });
-                        
+                console.log(body);
+
+
+                lineMessaging.replyMessage(replyToken, 'body').then(function (rs) {
+  
+                    console.log(`Reply message result : ${ rs }`);
+        
+                    res.json({
+                        status: 200,
+                        message: `Sent message!`
                     });
+                });
+        
+                
+
+
+
+
+
+
+
+
                 });
 
             // $.ajax({
