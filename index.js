@@ -10,38 +10,41 @@ const serviceAccount = require("./serviceAccountKey.json");
 
 
 firebase.initializeApp({
-  credential: firebase.credential.cert(serviceAccount),
-  databaseURL: "https://chatbot-eee95.firebaseio.com"
+    credential: firebase.credential.cert(serviceAccount),
+    databaseURL: "https://chatbot-eee95.firebaseio.com"
 });
 
 server()
     .use(bodyParser.json())
-    .use(bodyParser.urlencoded({ extended: false}))
+    .use(bodyParser.urlencoded({
+        extended: false
+    }))
     .get('/', (req, res) => res.send(`Hi there! This is a nodejs-line-api running on PORT: ${ PORT }`))
     // เพิ่มส่วนของ Webhook เข้าไป
     .post('/webhook', function (req, res) {
         let replyToken = req.body.events[0].replyToken;
         let message = req.body.events[0].message.text;
-        
+
         console.log(`Message token : ${ replyToken }`);
         console.log(`Message from chat : ${ message }`);
 
         const db = firebase.database();
 
-        var ca = message ;
-  
-  
+        var ca = '012019243';
+        // var ca = message ;
+
+
         switch (message) {
 
             case 'แจ้งปัญหา':
 
-            lineMessaging.replyMessage(replyToken, 'http://ictcc/ticket-add.php').then(function (rs) {  
-                console.log(`Reply message result : ${ rs }`);    
-                res.json({
-                    status: 200,
-                    message: `Sent message!`
+                lineMessaging.replyMessage(replyToken, 'http://ictcc/ticket-add.php').then(function (rs) {
+                    console.log(`Reply message result : ${ rs }`);
+                    res.json({
+                        status: 200,
+                        message: `Sent message!`
+                    });
                 });
-            });
                 break;
 
 
@@ -51,28 +54,30 @@ server()
                 break;
 
             case 'ติดต่อเรา':
-                
-                lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
-                console.log(`Reply message result : ${ rs }`);    
-                res.json({
-                    status: 200,
-                    message: `Sent message!`
-                });                
-            });
-            break;
-   
-                
+
+                lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {
+                    console.log(`Reply message result : ${ rs }`);
+                    res.json({
+                        status: 200,
+                        message: `Sent message!`
+                    });
+                });
+                break;
+
+
 
 
             default:
 
 
 
-            var request = require('request');
+                var request = require('request');
                 request.post({
-                url:     'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
-                form:    { req: "MEACA"+ca+"MEATSTH" }
-                }, function cadata(error, response, body){
+                    url: 'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
+                    form: {
+                        req: "MEACA" + ca + "MEATSTH"
+                    }
+                }, function cadata(error, response, body) {
                     // console.log(body);
 
                     return body;
@@ -81,21 +86,21 @@ server()
                 });
 
 
-                
-                var cadata =  cadata();
+
+                var cadata = cadata();
                 var data = data.split('|');
                 var totamount = data[3];
                 console.log('test' + totamount);
-            
+
                 //////////////Reply Message /////////////
-            lineMessaging.replyMessage(replyToken, totamount).then(function (rs) {  
-                console.log(`Reply message result : ${ rs }`);    
-                res.json({
-                    status: 200,
-                    message: `Sent message!`
+                lineMessaging.replyMessage(replyToken, 'Hellooo Worlddddd').then(function (rs) {
+                    console.log(`Reply message result : ${ rs }`);
+                    res.json({
+                        status: 200,
+                        message: `Sent message!`
+                    });
                 });
-            });
-            ////////End of Reply Message ///////////////////////
+                ////////End of Reply Message ///////////////////////
 
 
 
@@ -104,14 +109,14 @@ server()
 
 
         }
-  
-  
-  
-  
-  
-  
-  
-        
+
+
+
+
+
+
+
+
 
 
 
