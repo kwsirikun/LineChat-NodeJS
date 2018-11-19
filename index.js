@@ -65,27 +65,18 @@ server()
 
 
             default:
-                console.log("default")
-
-                var request = require('request');
-                request.post({
-                url:     'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
-                form:    { req: "MEACA"+ca+"MEATSTH" }
-                }, function(error, response, body){
-                // console.log(body);
 
 
-                lineMessaging.replyMessage(replyToken, 'aaaaaaaa').then(function (rs) {
-  
-                    console.log(`Reply message result : ${ rs }`);
-        
-                    res.json({
-                        status: 200,
-                        message: `Sent message!`
-                    });
+
+            lineMessaging.replyMessage(replyToken, 'Hello World').then(function (rs) {  
+                console.log(`Reply message result : ${ rs }`);    
+                res.json({
+                    status: 200,
+                    message: `Sent message!`
                 });
-        
-                });
+            });
+
+                
 
 
 
@@ -110,4 +101,6 @@ server()
 
 
     })
+
+
     .listen(PORT, () => console.log(`Listening on ${ PORT }`));
