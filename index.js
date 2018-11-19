@@ -89,7 +89,7 @@ server()
                 });
 
 
-
+                 var mystr = cadata();
                 //var cadata = cadata();
                 
                // var data = data.split('|');
