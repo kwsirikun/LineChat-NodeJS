@@ -87,10 +87,10 @@ server()
 
 
 
-                var cadata = cadata();
-                var data = data.split('|');
-                var totamount = data[3];
-                console.log('test' + totamount);
+                //var cadata = cadata();
+               // var data = data.split('|');
+                //var totamount = data[3];
+                //console.log('test' + totamount);
 
                 //////////////Reply Message /////////////
                 lineMessaging.replyMessage(replyToken, 'Hellooo Worlddddd').then(function (rs) {
