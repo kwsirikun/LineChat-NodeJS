@@ -82,18 +82,7 @@ server()
 
                     //return body.toString();
                     var data = body.toString();
-                    
-                    
-                    //////////////Reply Message /////////////
-                lineMessaging.replyMessage(replyToken, 'Hellooo Worlddddd').then(function (rs) {
-                    console.log(`Reply message result : ${ rs }`);
-                    res.json({
-                        status: 200,
-                        message: `Sent message!`
-                    });
-                });
-                ////////End of Reply Message ///////////////////////
-                    
+                                   
                     
 
 
@@ -106,6 +95,17 @@ server()
                // var data = data.split('|');
                 //var totamount = data[3];
                 //console.log('test' + totamount);
+                
+                
+                //////////////Reply Message /////////////
+                lineMessaging.replyMessage(replyToken, 'Hellooo Worlddddd').then(function (rs) {
+                    console.log(`Reply message result : ${ rs }`);
+                    res.json({
+                        status: 200,
+                        message: `Sent message!`
+                    });
+                });
+                ////////End of Reply Message ///////////////////////
 
                 
 
