@@ -84,7 +84,8 @@ server()
                 
                 var cadata =  cadata();
                 var data = data.split('|');
-                var totamount = data[3]
+                var totamount = data[3];
+                console.log('test' + totamount);
             
                 //////////////Reply Message /////////////
             lineMessaging.replyMessage(replyToken, totamount).then(function (rs) {  
