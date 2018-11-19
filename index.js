@@ -81,7 +81,7 @@ server()
 
             
                 //////////////Reply Message /////////////
-            lineMessaging.replyMessage(replyToken, 'Hello World').then(function (rs) {  
+            lineMessaging.replyMessage(replyToken, body).then(function (rs) {  
                 console.log(`Reply message result : ${ rs }`);    
                 res.json({
                     status: 200,
