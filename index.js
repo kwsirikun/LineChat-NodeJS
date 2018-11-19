@@ -89,7 +89,7 @@ server()
                 });
 
 
-                 var mystr = cadata();
+                 //var mystr = cadata();
                 //var cadata = cadata();
                 
                // var data = data.split('|');
@@ -98,7 +98,7 @@ server()
                 
                 
                 //////////////Reply Message /////////////
-                lineMessaging.replyMessage(replyToken, 'Hellooo Worlddddd').then(function (rs) {
+                lineMessaging.replyMessage(replyToken, 'Helloooo World').then(function (rs) {
                     console.log(`Reply message result : ${ rs }`);
                     res.json({
                         status: 200,
