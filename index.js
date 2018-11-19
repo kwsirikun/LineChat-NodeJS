@@ -27,11 +27,8 @@ server()
         console.log(`Message from chat : ${ message }`);
 
         const db = firebase.database();
-  
-  
-  
 
-  
+        var ca = message ;
   
   
         switch (message) {
@@ -52,21 +49,39 @@ server()
             case 'ติดตามปัญหา':
                 console.log("water")
                 break;
-            case 'ติดต่อเรา':
 
+            case 'ติดต่อเรา':
                 
-            lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
+                lineMessaging.replyMessage(replyToken, 'กรุณาโทร 713-4888').then(function (rs) {  
                 console.log(`Reply message result : ${ rs }`);    
                 res.json({
                     status: 200,
                     message: `Sent message!`
-                });
-                
+                });                
             });
+            break;
+   
+                
+
+        
 
 
-            var ca = message ;
-            var request = require('request');
+
+
+
+
+
+
+
+
+
+
+
+            default:
+                console.log("default")
+
+
+                var request = require('request');
                 request.post({
                 url:     'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
                 form:    { req: "MEACA"+ca+"MEATSTH" }
@@ -74,7 +89,7 @@ server()
                 console.log(body);
 
 
-                lineMessaging.replyMessage(replyToken, 'body').then(function (rs) {
+                lineMessaging.replyMessage(replyToken, 'aaaaaaaa').then(function (rs) {
   
                     console.log(`Reply message result : ${ rs }`);
         
@@ -84,61 +99,14 @@ server()
                     });
                 });
         
-                
-
-
-
-
-
-
-
-
                 });
 
-            // $.ajax({
-                
-            //     type: "GET", //HTTP METHOD : GET, POST
-            //     url: "http://localhost:1150/print_v4?username=admin&password=password",
-                
-            //     data :  "MEACA".message.12345TH" ,
-                
-            //     //data: "data",  //ข้อมูลที่จะส่ง
-            //     dataType: "json",
-
-            //     success: function (response) { //ข้อมูลที่ส่งกลับมา
-            //         //alert(response[0].title)
-            //         //var title =  response[0].title;
-            //         //return  title;
-            //         //return response[0].title;
-            //         //$('#p5').text(response[0].fname);
-
-            //        var words = response.split('|');
-            //        var TotAmt =    words[27] ;
 
 
 
 
 
 
-            //     }
-            // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                break;
-            default:
-                console.log("default")
         }
   
   
