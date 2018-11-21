@@ -69,11 +69,12 @@ server()
 
             default:
 
-                //data = '456';
+               //data = '456';
 
                 var request = require('request');
                 request.post({
-                   url: 'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY?',
+                    url: getenv('URL_ESERVICE'),
+                 
                     form: {
                         req: "MEACA" + ca + "MEATSTH"
                     }
