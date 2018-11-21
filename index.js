@@ -79,10 +79,12 @@ server()
                     }
                 }, function cadata(error, response, body) {
                     // console.log(body);
-
+                       
                     //return body.toString();
                      //data = body.toString();
                    // return data;
+                    
+                    data = '456'
                                                       
 
 
