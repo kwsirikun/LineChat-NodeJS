@@ -69,27 +69,22 @@ server()
 
             default:
 
-                data = '456';
+                //data = '456';
 
-                //var request = require('request');
-                //request.post({
-                 //   url: 'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY',
-                  //  form: {
-                  //      req: "MEACA" + ca + "MEATSTH"
-                 //   }
-               // }, function (error, response, body) {
+                var request = require('request');
+                request.post({
+                   url: 'http://10.211.70.35:18972/PAYGATEWAY_V2/MEAOPS_QUERY?',
+                    form: {
+                        req: "MEACA" + ca + "MEATSTH"
+                    }
+                }, function (error, response, body) {
                                         
-                //    data = '456';
+                    data = '456';
                                                       
-             //   });
+                });
 
             
-                 //var mystr = cadata();
-                //var cadata = cadata();
                 
-               // var data = data.split('|');
-                //var totamount = data[3];
-                //console.log('test' + totamount);
                 
                 
                 //////////////Reply Message /////////////
