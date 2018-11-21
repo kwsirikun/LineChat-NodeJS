@@ -29,7 +29,7 @@ server()
         console.log(`Message from chat : ${ message }`);
         const db = firebase.database();
 
-        var data = '';
+        var data = '123';
         var ca = '012019243';
         // var ca = message ;
 
@@ -81,7 +81,7 @@ server()
                     // console.log(body);
 
                     //return body.toString();
-                     data = body.toString();
+                     //data = body.toString();
                    // return data;
                                                       
 
