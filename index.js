@@ -69,20 +69,20 @@ server()
 
             default:
 
-               //data = '456';
+               data = '456';
 
-                var request = require('request');
-                request.post({
-                    url: getenv('URL_ESERVICE'),
+                //var request = require('request');
+                //request.post({
+                   // url: getenv('URL_ESERVICE'),
                  
-                    form: {
-                        req: "MEACA" + ca + "MEATSTH"
-                    }
-                }, function (error, response, body) {
+                   // form: {
+                   //     req: "MEACA" + ca + "MEATSTH"
+                   // }
+                //}, function (error, response, body) {
                                         
-                    data = '456';
+               //     data = '456';
                                                       
-                });
+               // });
 
             
                 
