@@ -73,7 +73,7 @@ server()
 
                 //var request = require('request');
                 //request.post({
-                   // url: getenv('URL_ESERVICE'),
+                   url: process.env.URL_ESERVICE,
                  
                    // form: {
                    //     req: "MEACA" + ca + "MEATSTH"
