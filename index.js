@@ -67,13 +67,13 @@ server()
 
 
 
-            default:
+            //default:
 
-               data = '456';
+               //data = '456';
 
                 //var request = require('request');
                 //request.post({
-                   url: process.env.URL_ESERVICE,
+                  // url: process.env.URL_ESERVICE,
                  
                    // form: {
                    //     req: "MEACA" + ca + "MEATSTH"
